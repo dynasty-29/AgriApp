@@ -21,6 +21,7 @@ st.sidebar.title("User Input")
 # Plant Prediction Section
 st.sidebar.subheader("Plant Prediction")
 plant_input = {}
+
 # Assuming 'Plant', 'Plant_Disease_Management', 'Pest_Management', etc. are the features in your dataset
 plant_input["Plant"] = st.sidebar.selectbox("Select Plant", plant_df["Plant"].unique())
 plant_input["Plant_Disease_Management"] = st.sidebar.selectbox(
@@ -29,11 +30,13 @@ plant_input["Plant_Disease_Management"] = st.sidebar.selectbox(
 plant_input["Pest_Management"] = st.sidebar.selectbox(
     "Pest Management", plant_df["Pest_Management"].unique()
 )
+
 # Add more input options as needed
 
 # Animal Prediction Section
 st.sidebar.subheader("Animal Prediction")
 animal_input = {}
+
 # Assuming 'Animal_Group', 'Animal_Type', 'Animal_Diseases_Management', 'Disease_Type', etc. are the features in your dataset
 animal_input["Animal_Group"] = st.sidebar.selectbox(
     "Select Animal Group", animal_df["Animal_Group"].unique()
@@ -48,25 +51,7 @@ animal_input["Animal_Diseases_Management"] = st.sidebar.selectbox(
 
 # Main content
 st.title("Plant and Animal Data Analysis App")
-# Debugging
-st.write("Before creating preprocessor")
-preprocessor = ColumnTransformer(
-    transformers=[
-        ("num", SimpleImputer(strategy="median"), ["numeric_column"]),
-        ("cat", OneHotEncoder(handle_unknown="ignore"), ["categorical_column"]),
-    ]
-)
-st.write("After creating preprocessor")
 
-# Creating the final pipeline with the RandomForestRegressor
-st.write("Before creating rf_model_plant")
-rf_model_plant = Pipeline(
-    steps=[
-        ("preprocessor", preprocessor),
-        ("regressor", RandomForestRegressor(random_state=42)),
-    ]
-)
-st.write("After creating rf_model_plant")
 # Plant Model Training
 st.header("Random Forest Model Training for Plant")
 
@@ -79,18 +64,40 @@ X_train_plant, X_test_plant, y_train_plant, y_test_plant = train_test_split(
     X_plant, y_plant, test_size=0.2, random_state=42
 )
 
-# Train the Random Forest model
+# Creating transformers for numeric and categorical columns
+numeric_features_plant = X_train_plant.select_dtypes(include=[np.number]).columns
+numeric_transformer_plant = Pipeline(
+    steps=[
+        (
+            "num",
+            SimpleImputer(strategy="median"),
+        )  # You can use other imputation strategies as well
+    ]
+)
+
+categorical_features_plant = X_train_plant.select_dtypes(include=[np.object]).columns
+categorical_transformer_plant = Pipeline(
+    steps=[("onehot", OneHotEncoder(handle_unknown="ignore"))]
+)
+
+# Combining transformers
+preprocessor_plant = ColumnTransformer(
+    transformers=[
+        ("num", numeric_transformer_plant, numeric_features_plant),
+        ("cat", categorical_transformer_plant, categorical_features_plant),
+    ]
+)
+
+# Creating the final pipeline with the RandomForestRegressor
 rf_model_plant = Pipeline(
     steps=[
-        ("preprocessor", preprocessor),
+        ("preprocessor", preprocessor_plant),
         ("regressor", RandomForestRegressor(random_state=42)),
     ]
 )
 
 # Training the model
-st.write("Before fitting rf_model_plant")
 rf_model_plant.fit(X_train_plant, y_train_plant)
-st.write("After fitting rf_model_plant")
 
 # Make predictions on the test set
 rf_predictions_plant = rf_model_plant.predict(X_test_plant)
@@ -112,14 +119,39 @@ X_train_anim, X_test_anim, y_train_anim, y_test_anim = train_test_split(
     X_anim, y_anim, test_size=0.2, random_state=42
 )
 
-# Train the Random Forest model
+# Creating transformers for numeric and categorical columns
+numeric_features_anim = X_train_anim.select_dtypes(include=[np.number]).columns
+numeric_transformer_anim = Pipeline(
+    steps=[
+        (
+            "num",
+            SimpleImputer(strategy="median"),
+        )  # You can use other imputation strategies as well
+    ]
+)
+
+categorical_features_anim = X_train_anim.select_dtypes(include=[np.object]).columns
+categorical_transformer_anim = Pipeline(
+    steps=[("onehot", OneHotEncoder(handle_unknown="ignore"))]
+)
+
+# Combining transformers
+preprocessor_anim = ColumnTransformer(
+    transformers=[
+        ("num", numeric_transformer_anim, numeric_features_anim),
+        ("cat", categorical_transformer_anim, categorical_features_anim),
+    ]
+)
+
+# Creating the final pipeline with the RandomForestRegressor
 rf_model_anim = Pipeline(
     steps=[
-        ("preprocessor", preprocessor),
+        ("preprocessor", preprocessor_anim),
         ("regressor", RandomForestRegressor(random_state=42)),
     ]
 )
 
+# Training the model
 rf_model_anim.fit(X_train_anim, y_train_anim)
 
 # Make predictions on the test set
@@ -129,14 +161,6 @@ rf_predictions_anim = rf_model_anim.predict(X_test_anim)
 rf_rmse_anim = np.sqrt(mean_squared_error(y_test_anim, rf_predictions_anim))
 st.subheader("Random Forest Model Evaluation for Animal")
 st.write(f"Random Forest RMSE: {rf_rmse_anim:.2f}")
-
-# Plant Prediction
-st.header("Plant Prediction")
-plant_prediction_input = pd.DataFrame([plant_input])
-
-# Predict Plant Harvest
-plant_prediction = rf_model_plant.predict(plant_prediction_input)
-st.write(f"Predicted Plant Harvest (Kg): {plant_prediction[0]:.2f}")
 
 # Animal Prediction
 st.header("Animal Prediction")
