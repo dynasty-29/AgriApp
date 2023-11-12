@@ -53,8 +53,8 @@ st.title("Plant and Animal Data Analysis App")
 st.header("Random Forest Model Training for Plant")
 
 # Assuming 'target_column_plant' is the target variable in your plant dataset
-X_plant = plant_df.drop("target_column_plant", axis=1)
-y_plant = plant_df["target_column_plant"]
+X_plant = plant_df.drop("Plant_Harvest_Kg", axis=1)
+y_plant = plant_df["Plant_Harvest_Kg"]
 
 # Split the data into training and testing sets
 X_train_plant, X_test_plant, y_train_plant, y_test_plant = train_test_split(
@@ -83,8 +83,8 @@ st.write(f"Random Forest RMSE: {rf_rmse_plant:.2f}")
 st.header("Random Forest Model Training for Animal")
 
 # Assuming 'target_column_animal' is the target variable in your animal dataset
-X_anim = animal_df.drop("target_column_animal", axis=1)
-y_anim = animal_df["target_column_animal"]
+X_anim = animal_df.drop("Animal_Harvest_Litres", axis=1)
+y_anim = animal_df["Animal_Harvest_Litres"]
 
 # Split the data into training and testing sets
 X_train_anim, X_test_anim, y_train_anim, y_test_anim = train_test_split(
