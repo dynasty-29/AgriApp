@@ -21,23 +21,32 @@ st.sidebar.subheader("Plant Prediction")
 plant_input = {}
 
 # Assuming 'Plant_Disease_Management', 'Pest_Management', etc. are the features in your dataset
+plant_input["Plant"] = st.sidebar.selectbox("Plant", plant_df["Plant"].unique())
 plant_input["Plant_Disease_Management"] = st.sidebar.selectbox(
     "Disease Management", plant_df["Plant_Disease_Management"].unique()
 )
 plant_input["Pest_Management"] = st.sidebar.selectbox(
     "Pest Management", plant_df["Pest_Management"].unique()
 )
-
 # Animal Prediction Section
 st.sidebar.subheader("Animal Prediction")
 animal_input = {}
 
 # Assuming 'Animal_Diseases_Management', 'Disease_Type', etc. are the features in your dataset
+animal_input["Animal_Group"] = st.sidebar.selectbox(
+    "Animal Group", animal_df["Animal_Group"].unique()
+)
 animal_input["Animal_Type"] = st.sidebar.selectbox(
     "Animal Type", animal_df["Animal_Type"].unique()
 )
 animal_input["Animal_Diseases_Management"] = st.sidebar.selectbox(
     "Diseases Management", animal_df["Animal_Diseases_Management"].unique()
+)
+animal_input["Disease_Type"] = st.sidebar.selectbox(
+    "Disease", animal_df["Disease_Type"].unique()
+)
+animal_input["Disease_Treatment"] = st.sidebar.selectbox(
+    "Diseases treatment", animal_df["Disease_Treatment"].unique()
 )
 
 # Main content
@@ -56,11 +65,7 @@ X_train_plant, X_test_plant, y_train_plant, y_test_plant = train_test_split(
 )
 
 # Assuming 'categorical_columns_plant' is a list of categorical columns in your plant dataset
-categorical_columns_plant = [
-    "Plant",
-    "Plant_Disease_Management",
-    "Pest_Management"
-]  
+categorical_columns_plant = ["Plant", "Plant_Disease_Management", "Pest_Management"]
 
 # Creating transformers for numeric and categorical columns for the plant dataset
 numeric_features_plant = X_train_plant.select_dtypes(include=[np.number]).columns
@@ -114,7 +119,7 @@ categorical_columns_anim = [
     "Animal_Type",
     "Animal_Diseases_Management",
     "Disease_Type",
-    "Disease_Treatment"
+    "Disease_Treatment",
 ]  # Add more columns as needed
 
 # Creating transformers for numeric and categorical columns for the animal dataset
