@@ -33,10 +33,12 @@ st.sidebar.subheader("Animal Prediction")
 animal_input = {}
 
 # Assuming 'Animal_Diseases_Management', 'Disease_Type', etc. are the features in your dataset
+animal_input["Animal_Type"] = st.sidebar.selectbox(
+    "Animal Type", animal_df["Animal_Type"].unique()
+)
 animal_input["Animal_Diseases_Management"] = st.sidebar.selectbox(
     "Diseases Management", animal_df["Animal_Diseases_Management"].unique()
 )
-# Add more input options as needed
 
 # Main content
 st.title("Plant and Animal Data Analysis App")
@@ -55,9 +57,10 @@ X_train_plant, X_test_plant, y_train_plant, y_test_plant = train_test_split(
 
 # Assuming 'categorical_columns_plant' is a list of categorical columns in your plant dataset
 categorical_columns_plant = [
+    "Plant",
     "Plant_Disease_Management",
-    "Pest_Management",
-]  # Add more columns as needed
+    "Pest_Management"
+]  
 
 # Creating transformers for numeric and categorical columns for the plant dataset
 numeric_features_plant = X_train_plant.select_dtypes(include=[np.number]).columns
@@ -107,8 +110,11 @@ X_train_anim, X_test_anim, y_train_anim, y_test_anim = train_test_split(
 
 # Assuming 'categorical_columns_anim' is a list of categorical columns in your animal dataset
 categorical_columns_anim = [
+    "Animal_Group",
     "Animal_Type",
     "Animal_Diseases_Management",
+    "Disease_Type",
+    "Disease_Treatment"
 ]  # Add more columns as needed
 
 # Creating transformers for numeric and categorical columns for the animal dataset
