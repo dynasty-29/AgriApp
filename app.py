@@ -66,7 +66,9 @@ X_train_plant, X_test_plant, y_train_plant, y_test_plant = train_test_split(
 
 # Creating transformers for numeric and categorical columns
 numeric_features_plant = X_train_plant.select_dtypes(include=[np.number]).columns
-categorical_features_plant = X_train_plant.select_dtypes(include=[np.object]).columns
+categorical_features_plant = [
+    col for col in X_train_plant.columns if X_train_plant[col].dtype == "object"
+]
 
 if not numeric_features_plant.empty:
     numeric_transformer_plant = Pipeline(
@@ -81,7 +83,7 @@ else:
     st.error("No numeric features found in the plant dataset.")
     st.stop()
 
-if not categorical_features_plant.empty:
+if categorical_features_plant:
     categorical_transformer_plant = Pipeline(
         steps=[("onehot", OneHotEncoder(handle_unknown="ignore"))]
     )
