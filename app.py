@@ -92,6 +92,7 @@ rf_model_plant = Pipeline(
 )
 
 rf_model_plant.fit(X_train_plant, y_train_plant)
+#
 # Plant Prediction
 st.header("Plant Prediction")
 plant_prediction_input = pd.DataFrame([plant_input])
@@ -109,7 +110,7 @@ plant_prediction_input = plant_prediction_input[X_train_plant.columns]
 # Try to transform the input using the preprocessor and catch any exceptions
 try:
     transformed_plant_prediction_input = preprocessor_plant.transform(
-        plant_prediction_input
+        plant_prediction_input.iloc[0:1]  # Using iloc to get a Series
     )
     st.write("After transforming plant_prediction_input")
     st.write("Columns after transform:", transformed_plant_prediction_input.columns)
@@ -125,8 +126,17 @@ if transformed_plant_prediction_input is not None:
     st.write(f"Predicted Plant Harvest (Kg): {plant_prediction[0]:.2f}")
 else:
     st.write("Transformation failed. Please check your input.")
-# Animal Model Training
+
+# Random Forest Model Training for Animal
 st.header("Random Forest Model Training for Animal")
+
+# Define rf_model_anim before training
+rf_model_anim = Pipeline(
+    steps=[
+        ("preprocessor", preprocessor_anim),
+        ("regressor", RandomForestRegressor(random_state=42)),
+    ]
+)
 
 # Assuming 'target_column_animal' is the target variable in your animal dataset
 X_anim = animal_df.drop("Animal_Harvest_Litres", axis=1)
@@ -153,13 +163,13 @@ st.write(
     nan_inf_counts_anim.sum(),
 )
 
-
 # Train the Random Forest model
 try:
     rf_model_anim.fit(X_train_anim, y_train_anim)
 except Exception as e:
     st.write(f"Error during training: {e}")
 
+# After transforming X_train_anim
 st.write("After transforming X_train_anim")
 st.write("Columns after transform:", X_train_anim.columns)
 st.write("Shape after transform:", X_train_anim.shape)
