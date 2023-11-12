@@ -120,20 +120,6 @@ if transformed_plant_prediction_input is not None:
     st.write(f"Predicted Plant Harvest (Kg): {plant_prediction[0]:.2f}")
 else:
     st.write("Transformation failed. Please check your input.")
-    
-# # Transform the input using the preprocessor
-# transformed_plant_prediction_input = preprocessor_plant.transform(
-#     plant_prediction_input
-# )
-
-# # More debugging information
-# st.write("After transforming plant_prediction_input")
-# st.write("Columns after transform:", transformed_plant_prediction_input.columns)
-# st.write("Shape after transform:", transformed_plant_prediction_input.shape)
-
-# # Predict Plant Harvest
-# plant_prediction = rf_model_plant.predict(transformed_plant_prediction_input)
-# st.write(f"Predicted Plant Harvest (Kg): {plant_prediction[0]:.2f}")
 
 # Animal Model Training
 st.header("Random Forest Model Training for Animal")
@@ -147,45 +133,72 @@ X_train_anim, X_test_anim, y_train_anim, y_test_anim = train_test_split(
     X_anim, y_anim, test_size=0.2, random_state=42
 )
 
-# Assuming 'categorical_columns_anim' is a list of categorical columns in your animal dataset
-categorical_columns_anim = [
-    "Animal_Group",
-    "Animal_Type",
-    "Animal_Diseases_Management",
-    "Disease_Type",
-    "Disease_Treatment",
-]  # Add more columns as needed
+# Debugging information
+st.write("Before transforming X_train_anim")
+st.write("Columns before transform:", X_train_anim.columns)
+st.write("Shape before transform:", X_train_anim.shape)
 
-# Creating transformers for numeric and categorical columns for the animal dataset
-numeric_features_anim = X_train_anim.select_dtypes(include=[np.number]).columns
-numeric_transformer_anim = Pipeline(steps=[("num", SimpleImputer(strategy="median"))])
+# Train the Random Forest model
+try:
+    rf_model_anim.fit(X_train_anim, y_train_anim)
+except Exception as e:
+    st.write(f"Error during training: {e}")
 
-categorical_transformer_anim = Pipeline(
-    steps=[("onehot", OneHotEncoder(handle_unknown="ignore"))]
-)
+st.write("After transforming X_train_anim")
+st.write("Columns after transform:", X_train_anim.columns)
+st.write("Shape after transform:", X_train_anim.shape)
 
-# Combining transformers for the animal dataset
-preprocessor_anim = ColumnTransformer(
-    transformers=[
-        ("num", numeric_transformer_anim, numeric_features_anim),
-        ("cat", categorical_transformer_anim, categorical_columns_anim),
-    ]
-)
+# # Animal Model Training
+# st.header("Random Forest Model Training for Animal")
 
-# Creating the final pipeline with the RandomForestRegressor for the animal dataset
-rf_model_anim = Pipeline(
-    steps=[
-        ("preprocessor", preprocessor_anim),
-        ("regressor", RandomForestRegressor(random_state=42)),
-    ]
-)
+# # Assuming 'target_column_animal' is the target variable in your animal dataset
+# X_anim = animal_df.drop("Animal_Harvest_Litres", axis=1)
+# y_anim = animal_df["Animal_Harvest_Litres"]
 
-rf_model_anim.fit(X_train_anim, y_train_anim)
+# # Split the data into training and testing sets
+# X_train_anim, X_test_anim, y_train_anim, y_test_anim = train_test_split(
+#     X_anim, y_anim, test_size=0.2, random_state=42
+# )
 
-# Animal Prediction
-st.header("Animal Prediction")
-animal_prediction_input = pd.DataFrame([animal_input])
+# # Assuming 'categorical_columns_anim' is a list of categorical columns in your animal dataset
+# categorical_columns_anim = [
+#     "Animal_Group",
+#     "Animal_Type",
+#     "Animal_Diseases_Management",
+#     "Disease_Type",
+#     "Disease_Treatment",
+# ]  # Add more columns as needed
 
-# Predict Animal Harvest Litres
-animal_prediction = rf_model_anim.predict(animal_prediction_input)
-st.write(f"Predicted Animal Harvest Litres: {animal_prediction[0]:.2f}")
+# # Creating transformers for numeric and categorical columns for the animal dataset
+# numeric_features_anim = X_train_anim.select_dtypes(include=[np.number]).columns
+# numeric_transformer_anim = Pipeline(steps=[("num", SimpleImputer(strategy="median"))])
+
+# categorical_transformer_anim = Pipeline(
+#     steps=[("onehot", OneHotEncoder(handle_unknown="ignore"))]
+# )
+
+# # Combining transformers for the animal dataset
+# preprocessor_anim = ColumnTransformer(
+#     transformers=[
+#         ("num", numeric_transformer_anim, numeric_features_anim),
+#         ("cat", categorical_transformer_anim, categorical_columns_anim),
+#     ]
+# )
+
+# # Creating the final pipeline with the RandomForestRegressor for the animal dataset
+# rf_model_anim = Pipeline(
+#     steps=[
+#         ("preprocessor", preprocessor_anim),
+#         ("regressor", RandomForestRegressor(random_state=42)),
+#     ]
+# )
+
+# rf_model_anim.fit(X_train_anim, y_train_anim)
+
+# # Animal Prediction
+# st.header("Animal Prediction")
+# animal_prediction_input = pd.DataFrame([animal_input])
+
+# # Predict Animal Harvest Litres
+# animal_prediction = rf_model_anim.predict(animal_prediction_input)
+# st.write(f"Predicted Animal Harvest Litres: {animal_prediction[0]:.2f}")
