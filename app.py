@@ -113,7 +113,6 @@ try:
         plant_prediction_input.iloc[0:1]  # Using iloc to get a Series
     )
     st.write("After transforming plant_prediction_input")
-    st.write("Columns after transform:", transformed_plant_prediction_input.columns)
     st.write("Shape after transform:", transformed_plant_prediction_input.shape)
 except Exception as e:
     st.write(f"Error during transformation: {e}")
@@ -126,6 +125,7 @@ if transformed_plant_prediction_input is not None:
     st.write(f"Predicted Plant Harvest (Kg): {plant_prediction[0]:.2f}")
 else:
     st.write("Transformation failed. Please check your input.")
+
 
 # Random Forest Model Training for Animal
 st.header("Random Forest Model Training for Animal")
