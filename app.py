@@ -138,6 +138,13 @@ st.write("Before transforming X_train_anim")
 st.write("Columns before transform:", X_train_anim.columns)
 st.write("Shape before transform:", X_train_anim.shape)
 
+# Check for NaN or infinite values in X_train_anim
+st.write(
+    "NaN or infinite values in X_train_anim:",
+    X_train_anim.isnull().sum().sum(),
+    np.isinf(X_train_anim).sum().sum(),
+)
+
 # Train the Random Forest model
 try:
     rf_model_anim.fit(X_train_anim, y_train_anim)
