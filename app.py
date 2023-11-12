@@ -55,7 +55,12 @@ st.title("Plant and Animal Data Analysis App")
 # Plant Model Training
 st.header("Random Forest Model Training for Plant")
 
+
 # Assuming 'target_column_plant' is the target variable in your plant dataset
+X_plant = plant_df.drop("Plant_Harvest_Kg", axis=1)
+y_plant = plant_df["Plant_Harvest_Kg"]
+
+# Split the data into training and testing sets
 X_train_plant, X_test_plant, y_train_plant, y_test_plant = train_test_split(
     X_plant, y_plant, test_size=0.2, random_state=42
 )
