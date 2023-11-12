@@ -51,36 +51,6 @@ animal_input["Animal_Diseases_Management"] = st.sidebar.selectbox(
 
 # Main content
 st.title("Plant and Animal Data Analysis App")
-# Plant Prediction Section
-st.sidebar.subheader("Plant Prediction")
-plant_input = {}
-# Assuming 'Plant', 'Plant_Disease_Management', 'Pest_Management', etc. are the features in your dataset
-plant_input["Plant"] = st.sidebar.selectbox("Select Plant", plant_df["Plant"].unique())
-plant_input["Plant_Disease_Management"] = st.sidebar.selectbox(
-    "Disease Management", plant_df["Plant_Disease_Management"].unique()
-)
-plant_input["Pest_Management"] = st.sidebar.selectbox(
-    "Pest Management", plant_df["Pest_Management"].unique()
-)
-# Add more input options as needed
-
-# Animal Prediction Section
-st.sidebar.subheader("Animal Prediction")
-animal_input = {}
-# Assuming 'Animal_Group', 'Animal_Type', 'Animal_Diseases_Management', 'Disease_Type', etc. are the features in your dataset
-animal_input["Animal_Group"] = st.sidebar.selectbox(
-    "Select Animal Group", animal_df["Animal_Group"].unique()
-)
-animal_input["Animal_Type"] = st.sidebar.selectbox(
-    "Select Animal Type", animal_df["Animal_Type"].unique()
-)
-animal_input["Animal_Diseases_Management"] = st.sidebar.selectbox(
-    "Diseases Management", animal_df["Animal_Diseases_Management"].unique()
-)
-# Add more input options as needed
-
-# Main content
-st.title("Plant and Animal Data Analysis App")
 
 # Plant Model Training
 st.header("Random Forest Model Training for Plant")
