@@ -96,10 +96,20 @@ rf_model_plant.fit(X_train_plant, y_train_plant)
 st.header("Plant Prediction")
 plant_prediction_input = pd.DataFrame([plant_input])
 
+# Debugging information
+st.write("Before transforming plant_prediction_input")
+st.write("Columns before transform:", plant_prediction_input.columns)
+st.write("Shape before transform:", plant_prediction_input.shape)
+
 # Transform the input using the preprocessor
 transformed_plant_prediction_input = preprocessor_plant.transform(
     plant_prediction_input
 )
+
+# More debugging information
+st.write("After transforming plant_prediction_input")
+st.write("Columns after transform:", transformed_plant_prediction_input.columns)
+st.write("Shape after transform:", transformed_plant_prediction_input.shape)
 
 # Predict Plant Harvest
 plant_prediction = rf_model_plant.predict(transformed_plant_prediction_input)
