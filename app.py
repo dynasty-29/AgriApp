@@ -97,6 +97,13 @@ st.header("Plant Prediction")
 plant_prediction_input = pd.DataFrame([plant_input])
 
 # Ensure that plant_prediction_input has the same columns as X_train_plant
+missing_columns = set(X_train_plant.columns) - set(plant_prediction_input.columns)
+for column in missing_columns:
+    plant_prediction_input[
+        column
+    ] = 0  # You can set a default value or any appropriate value
+
+# Sort the columns to ensure the order is the same
 plant_prediction_input = plant_prediction_input[X_train_plant.columns]
 
 # Try to transform the input using the preprocessor and catch any exceptions
@@ -118,7 +125,6 @@ if transformed_plant_prediction_input is not None:
     st.write(f"Predicted Plant Harvest (Kg): {plant_prediction[0]:.2f}")
 else:
     st.write("Transformation failed. Please check your input.")
-
 # Animal Model Training
 st.header("Random Forest Model Training for Animal")
 
