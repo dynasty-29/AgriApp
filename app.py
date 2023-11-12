@@ -101,19 +101,39 @@ st.write("Before transforming plant_prediction_input")
 st.write("Columns before transform:", plant_prediction_input.columns)
 st.write("Shape before transform:", plant_prediction_input.shape)
 
-# Transform the input using the preprocessor
-transformed_plant_prediction_input = preprocessor_plant.transform(
-    plant_prediction_input
-)
+# Try to transform the input using the preprocessor and catch any exceptions
+try:
+    transformed_plant_prediction_input = preprocessor_plant.transform(
+        plant_prediction_input
+    )
+    st.write("After transforming plant_prediction_input")
+    st.write("Columns after transform:", transformed_plant_prediction_input.columns)
+    st.write("Shape after transform:", transformed_plant_prediction_input.shape)
+except Exception as e:
+    st.write(f"Error during transformation: {e}")
+    transformed_plant_prediction_input = None
 
-# More debugging information
-st.write("After transforming plant_prediction_input")
-st.write("Columns after transform:", transformed_plant_prediction_input.columns)
-st.write("Shape after transform:", transformed_plant_prediction_input.shape)
+# Check if transformation was successful before predicting
+if transformed_plant_prediction_input is not None:
+    # Predict Plant Harvest
+    plant_prediction = rf_model_plant.predict(transformed_plant_prediction_input)
+    st.write(f"Predicted Plant Harvest (Kg): {plant_prediction[0]:.2f}")
+else:
+    st.write("Transformation failed. Please check your input.")
+    
+# # Transform the input using the preprocessor
+# transformed_plant_prediction_input = preprocessor_plant.transform(
+#     plant_prediction_input
+# )
 
-# Predict Plant Harvest
-plant_prediction = rf_model_plant.predict(transformed_plant_prediction_input)
-st.write(f"Predicted Plant Harvest (Kg): {plant_prediction[0]:.2f}")
+# # More debugging information
+# st.write("After transforming plant_prediction_input")
+# st.write("Columns after transform:", transformed_plant_prediction_input.columns)
+# st.write("Shape after transform:", transformed_plant_prediction_input.shape)
+
+# # Predict Plant Harvest
+# plant_prediction = rf_model_plant.predict(transformed_plant_prediction_input)
+# st.write(f"Predicted Plant Harvest (Kg): {plant_prediction[0]:.2f}")
 
 # Animal Model Training
 st.header("Random Forest Model Training for Animal")
