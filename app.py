@@ -92,13 +92,17 @@ rf_model_plant = Pipeline(
 )
 
 rf_model_plant.fit(X_train_plant, y_train_plant)
-
 # Plant Prediction
 st.header("Plant Prediction")
 plant_prediction_input = pd.DataFrame([plant_input])
 
+# Transform the input using the preprocessor
+transformed_plant_prediction_input = preprocessor_plant.transform(
+    plant_prediction_input
+)
+
 # Predict Plant Harvest
-plant_prediction = rf_model_plant.predict(plant_prediction_input)
+plant_prediction = rf_model_plant.predict(transformed_plant_prediction_input)
 st.write(f"Predicted Plant Harvest (Kg): {plant_prediction[0]:.2f}")
 
 # Animal Model Training
