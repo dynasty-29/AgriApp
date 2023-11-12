@@ -66,19 +66,28 @@ X_train_plant, X_test_plant, y_train_plant, y_test_plant = train_test_split(
 
 # Creating transformers for numeric and categorical columns
 numeric_features_plant = X_train_plant.select_dtypes(include=[np.number]).columns
-numeric_transformer_plant = Pipeline(
-    steps=[
-        (
-            "num",
-            SimpleImputer(strategy="median"),
-        )  # You can use other imputation strategies as well
-    ]
-)
-
 categorical_features_plant = X_train_plant.select_dtypes(include=[np.object]).columns
-categorical_transformer_plant = Pipeline(
-    steps=[("onehot", OneHotEncoder(handle_unknown="ignore"))]
-)
+
+if not numeric_features_plant.empty:
+    numeric_transformer_plant = Pipeline(
+        steps=[
+            (
+                "num",
+                SimpleImputer(strategy="median"),
+            )  # You can use other imputation strategies as well
+        ]
+    )
+else:
+    st.error("No numeric features found in the plant dataset.")
+    st.stop()
+
+if not categorical_features_plant.empty:
+    categorical_transformer_plant = Pipeline(
+        steps=[("onehot", OneHotEncoder(handle_unknown="ignore"))]
+    )
+else:
+    st.error("No categorical features found in the plant dataset.")
+    st.stop()
 
 # Combining transformers
 preprocessor_plant = ColumnTransformer(
@@ -106,6 +115,7 @@ rf_predictions_plant = rf_model_plant.predict(X_test_plant)
 rf_rmse_plant = np.sqrt(mean_squared_error(y_test_plant, rf_predictions_plant))
 st.subheader("Random Forest Model Evaluation for Plant")
 st.write(f"Random Forest RMSE: {rf_rmse_plant:.2f}")
+
 
 # Animal Model Training
 st.header("Random Forest Model Training for Animal")
