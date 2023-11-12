@@ -139,11 +139,18 @@ st.write("Columns before transform:", X_train_anim.columns)
 st.write("Shape before transform:", X_train_anim.shape)
 
 # Check for NaN or infinite values in X_train_anim
-st.write(
-    "NaN or infinite values in X_train_anim:",
-    X_train_anim.isnull().sum().sum(),
-    np.isinf(X_train_anim).sum().sum(),
+# Check for NaN or infinite values in numeric columns of X_train_anim
+numeric_cols_anim = X_train_anim.select_dtypes(include=[np.number]).columns
+nan_inf_counts_anim = (
+    X_train_anim[numeric_cols_anim].isnull().sum().sum(),
+    np.isinf(X_train_anim[numeric_cols_anim]).sum().sum(),
 )
+
+st.write(
+    "NaN or infinite values in X_train_anim (numeric columns only):",
+    nan_inf_counts_anim,
+)
+
 
 # Train the Random Forest model
 try:
