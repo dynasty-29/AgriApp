@@ -48,7 +48,25 @@ animal_input["Animal_Diseases_Management"] = st.sidebar.selectbox(
 
 # Main content
 st.title("Plant and Animal Data Analysis App")
+# Debugging
+st.write("Before creating preprocessor")
+preprocessor = ColumnTransformer(
+    transformers=[
+        ("num", SimpleImputer(strategy="median"), ["numeric_column"]),
+        ("cat", OneHotEncoder(handle_unknown="ignore"), ["categorical_column"]),
+    ]
+)
+st.write("After creating preprocessor")
 
+# Creating the final pipeline with the RandomForestRegressor
+st.write("Before creating rf_model_plant")
+rf_model_plant = Pipeline(
+    steps=[
+        ("preprocessor", preprocessor),
+        ("regressor", RandomForestRegressor(random_state=42)),
+    ]
+)
+st.write("After creating rf_model_plant")
 # Plant Model Training
 st.header("Random Forest Model Training for Plant")
 
@@ -69,7 +87,10 @@ rf_model_plant = Pipeline(
     ]
 )
 
+# Training the model
+st.write("Before fitting rf_model_plant")
 rf_model_plant.fit(X_train_plant, y_train_plant)
+st.write("After fitting rf_model_plant")
 
 # Make predictions on the test set
 rf_predictions_plant = rf_model_plant.predict(X_test_plant)
