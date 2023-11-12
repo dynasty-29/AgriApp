@@ -1,0 +1,501 @@
+Animal_Group,Animal_Type,Animal_Harvest_Litres,Animal_Diseases_Management,Disease_Type,Disease_Treatment
+Bull,Meat,29.17631703565087,False,None,Segregation
+Bull,Dairy,14.819844395233584,False,None,None
+Bull,Dairy,,False,None,None
+Bull,Dairy,,True,None,Segregation
+Cow,Dairy,,True,Bovine Respiratory Disease,Segregation
+Cow,Meat,,False,Foot-and-Mouth Disease,Segregation
+Cow,Dairy,16.455866259820844,False,Foot-and-Mouth Disease,Vaccination
+Bull,Dairy,24.533721015360157,True,None,None
+Bull,Dairy,,False,Mastitis,None
+Bull,Dairy,,False,None,Vaccination
+Cow,Dairy,,True,None,Vaccination
+Bull,Dairy,,False,Foot-and-Mouth Disease,None
+Bull,Dairy,,True,Bovine Respiratory Disease,Segregation
+Bull,Dairy,,True,None,None
+Cow,Meat,,False,Mastitis,None
+Bull,Dairy,,True,None,None
+Cow,Meat,,False,None,None
+Bull,Dairy,6.151418354748909,True,Mastitis,None
+Cow,Dairy,,False,None,None
+Cow,Dairy,9.447203101225586,False,Foot-and-Mouth Disease,None
+Cow,Dairy,17.867090428035972,False,Bovine Respiratory Disease,None
+Bull,Meat,,True,None,None
+Bull,Dairy,,True,None,Segregation
+Cow,Dairy,11.145185982653825,False,Mastitis,None
+Cow,Meat,15.069109961556297,True,None,None
+Bull,Meat,,False,None,Vaccination
+Bull,Dairy,5.011069535930197,False,Bovine Respiratory Disease,Segregation
+Cow,Meat,,True,Bovine Respiratory Disease,Vaccination
+Bull,Meat,,False,None,Segregation
+Bull,Meat,,True,Mastitis,None
+Bull,Dairy,28.871174825961702,False,None,Segregation
+Bull,Dairy,17.366879739782085,True,None,None
+Cow,Dairy,,False,Bovine Respiratory Disease,Segregation
+Bull,Meat,17.038733506896357,False,Foot-and-Mouth Disease,Segregation
+Bull,Dairy,20.886091141488066,True,Mastitis,None
+Cow,Meat,7.268042555873276,False,Mastitis,None
+Cow,Dairy,5.815448708539162,False,None,Vaccination
+Bull,Dairy,6.442573210397471,True,Bovine Respiratory Disease,None
+Bull,Meat,16.109133731037858,False,None,None
+Bull,Dairy,11.888698480487085,True,None,None
+Bull,Meat,,False,None,None
+Cow,Meat,29.811057234369475,True,Mastitis,None
+Cow,Dairy,14.658079326911647,False,None,None
+Cow,Meat,19.346031352612833,False,None,None
+Bull,Dairy,15.390097397683387,False,Mastitis,None
+Bull,Dairy,26.181791693046485,True,None,None
+Bull,Meat,27.555910086555954,True,Foot-and-Mouth Disease,None
+Bull,Dairy,26.933890305131502,True,Bovine Respiratory Disease,None
+Cow,Meat,29.35930596698144,True,None,None
+Cow,Dairy,,False,None,None
+Bull,Dairy,25.995404053638275,False,None,None
+Cow,Dairy,23.794304325977333,True,Mastitis,None
+Bull,Dairy,10.71736023500912,True,None,None
+Bull,Dairy,28.908002334688188,True,Bovine Respiratory Disease,None
+Cow,Meat,,False,Mastitis,None
+Bull,Meat,,True,Foot-and-Mouth Disease,Segregation
+Bull,Meat,,True,None,None
+Cow,Meat,,False,None,None
+Bull,Meat,,False,None,Vaccination
+Bull,Meat,,True,Mastitis,None
+Cow,Dairy,,False,None,None
+Bull,Dairy,,True,None,None
+Cow,Meat,,False,None,None
+Bull,Meat,,True,Bovine Respiratory Disease,None
+Cow,Dairy,,True,None,Segregation
+Cow,Dairy,,True,None,None
+Cow,Dairy,,True,None,None
+Bull,Meat,,False,Mastitis,Vaccination
+Cow,Meat,,False,Foot-and-Mouth Disease,Segregation
+Cow,Meat,,False,Mastitis,Segregation
+Cow,Dairy,27.222185600090743,False,Bovine Respiratory Disease,None
+Cow,Dairy,,True,Bovine Respiratory Disease,None
+Cow,Meat,10.111522151367794,True,None,None
+Bull,Meat,,False,Mastitis,None
+Bull,Dairy,,False,Bovine Respiratory Disease,None
+Bull,Dairy,19.845062020240388,False,None,None
+Bull,Dairy,,False,None,None
+Bull,Dairy,20.901061719499207,False,None,None
+Bull,Meat,14.1088559607058,True,None,None
+Bull,Dairy,12.381045062241054,True,None,None
+Cow,Dairy,,True,None,None
+Bull,Dairy,,False,None,None
+Cow,Meat,,False,None,None
+Cow,Meat,25.668669200656176,False,Mastitis,None
+Bull,Dairy,6.191031435912665,False,None,Vaccination
+Cow,Dairy,,True,Bovine Respiratory Disease,None
+Cow,Dairy,,True,Bovine Respiratory Disease,None
+Cow,Meat,,False,None,None
+Cow,Meat,,True,Foot-and-Mouth Disease,Segregation
+Bull,Meat,,True,None,None
+Bull,Dairy,16.58234133181992,False,None,None
+Bull,Meat,6.135082036717314,False,None,Vaccination
+Bull,Dairy,12.250729841222647,False,None,Segregation
+Bull,Dairy,,False,None,None
+Bull,Dairy,14.7955990820875,False,Foot-and-Mouth Disease,None
+Bull,Meat,18.66751301391921,False,None,None
+Bull,Dairy,18.300541974606297,True,Foot-and-Mouth Disease,None
+Bull,Meat,19.760777245567333,True,None,None
+Bull,Meat,6.533273891082065,False,Foot-and-Mouth Disease,None
+Cow,Dairy,,True,Mastitis,None
+Bull,Dairy,23.078206847063854,False,None,None
+Cow,Meat,,False,None,None
+Cow,Dairy,,False,None,None
+Cow,Meat,,False,None,None
+Cow,Dairy,,True,None,None
+Bull,Meat,,False,None,None
+Cow,Meat,6.297523589682726,True,None,Segregation
+Bull,Meat,9.777967737400065,False,None,None
+Bull,Meat,,False,None,None
+Cow,Dairy,,False,None,None
+Bull,Dairy,,True,None,Segregation
+Cow,Meat,15.398597614546375,False,Mastitis,None
+Cow,Meat,,False,None,Segregation
+Bull,Dairy,20.240775291422548,False,None,None
+Bull,Dairy,,True,None,None
+Cow,Dairy,25.450668728467324,True,Foot-and-Mouth Disease,None
+Bull,Dairy,,True,None,None
+Bull,Dairy,11.785964440855004,False,Mastitis,None
+Bull,Dairy,,True,None,None
+Cow,Meat,13.424118142936413,False,None,None
+Cow,Dairy,29.98859796797736,True,None,None
+Bull,Dairy,15.143779215376526,True,Mastitis,None
+Bull,Meat,10.51221086722766,False,Bovine Respiratory Disease,None
+Bull,Dairy,24.062072111888824,True,Bovine Respiratory Disease,None
+Bull,Dairy,18.561775086566403,False,None,None
+Bull,Dairy,8.740036238173813,False,Bovine Respiratory Disease,None
+Cow,Dairy,,True,Mastitis,None
+Bull,Dairy,,False,None,None
+Cow,Meat,,False,None,Segregation
+Bull,Dairy,,True,Foot-and-Mouth Disease,None
+Cow,Meat,,True,Bovine Respiratory Disease,None
+Bull,Meat,17.93990753288805,False,None,None
+Cow,Dairy,11.721168561321083,True,None,None
+Bull,Meat,20.710851185474972,False,None,None
+Cow,Dairy,17.046686981865413,False,None,None
+Cow,Meat,14.042756371489515,True,None,None
+Cow,Meat,,True,None,None
+Cow,Dairy,,True,Bovine Respiratory Disease,Vaccination
+Cow,Dairy,,True,None,None
+Cow,Dairy,,False,None,Vaccination
+Bull,Dairy,24.518296330022526,False,None,Vaccination
+Cow,Dairy,22.712242437319933,True,None,None
+Bull,Meat,9.302230732381485,True,None,None
+Bull,Meat,,False,Mastitis,None
+Bull,Meat,16.220341143665152,False,None,None
+Bull,Meat,,False,None,Vaccination
+Bull,Meat,9.504893853203697,False,Foot-and-Mouth Disease,Vaccination
+Cow,Meat,7.455874804727012,True,None,None
+Cow,Meat,,False,None,Vaccination
+Cow,Dairy,8.050762358046217,False,None,Vaccination
+Bull,Dairy,8.128131428543673,True,Foot-and-Mouth Disease,None
+Cow,Meat,,False,None,Segregation
+Cow,Meat,13.61510211118899,False,None,Segregation
+Cow,Dairy,,True,Mastitis,None
+Cow,Dairy,6.297382487960272,True,Foot-and-Mouth Disease,Vaccination
+Cow,Dairy,8.554261167597389,True,Mastitis,None
+Bull,Dairy,10.334833699392238,False,Bovine Respiratory Disease,None
+Cow,Meat,21.628654855960136,False,None,None
+Bull,Dairy,8.933157000045707,True,None,None
+Bull,Meat,7.9718597794268,True,None,Vaccination
+Bull,Meat,24.11797853690698,False,None,None
+Bull,Meat,21.776382096497862,True,None,None
+Bull,Dairy,,True,Foot-and-Mouth Disease,None
+Cow,Dairy,,True,Bovine Respiratory Disease,None
+Cow,Meat,12.799600508160463,False,Mastitis,Vaccination
+Cow,Meat,17.062510505884017,False,None,None
+Bull,Meat,,False,None,Segregation
+Cow,Dairy,14.680931779452399,False,None,None
+Cow,Meat,27.664305266804067,False,Bovine Respiratory Disease,None
+Bull,Dairy,,False,None,None
+Bull,Meat,24.554281577281156,True,Bovine Respiratory Disease,None
+Bull,Meat,8.109570781033108,False,Bovine Respiratory Disease,None
+Bull,Meat,,False,Bovine Respiratory Disease,None
+Cow,Dairy,20.39779789191803,True,Mastitis,None
+Bull,Dairy,26.08195227341006,False,Mastitis,Vaccination
+Bull,Meat,,False,Mastitis,Vaccination
+Cow,Dairy,18.97451585249435,True,None,None
+Cow,Meat,,True,None,Vaccination
+Bull,Dairy,22.654829574083966,True,Bovine Respiratory Disease,None
+Cow,Dairy,18.357263797341894,False,None,None
+Bull,Dairy,,True,Bovine Respiratory Disease,Segregation
+Bull,Meat,,False,None,Segregation
+Cow,Dairy,12.72086060018352,False,None,None
+Cow,Dairy,,False,None,None
+Bull,Meat,,False,Bovine Respiratory Disease,Vaccination
+Bull,Meat,29.03783347457712,True,Bovine Respiratory Disease,None
+Bull,Meat,22.860269090664957,True,None,None
+Cow,Meat,28.81167791719617,False,Bovine Respiratory Disease,Vaccination
+Bull,Dairy,,True,Mastitis,None
+Bull,Dairy,,False,None,Segregation
+Bull,Dairy,,False,None,None
+Bull,Dairy,,False,None,Segregation
+Bull,Dairy,20.625729652130143,True,None,Segregation
+Cow,Meat,,False,None,Segregation
+Bull,Dairy,25.410269624125768,False,None,None
+Bull,Dairy,,True,None,Vaccination
+Bull,Dairy,6.772289397282134,True,Bovine Respiratory Disease,None
+Bull,Meat,12.82157902137825,True,Bovine Respiratory Disease,None
+Cow,Meat,28.38242746363319,True,None,None
+Cow,Dairy,,False,None,None
+Cow,Meat,29.54764245191348,True,None,None
+Bull,Meat,20.699834565102453,False,None,Segregation
+Bull,Meat,,True,Mastitis,None
+Cow,Meat,9.070376241921593,True,None,None
+Cow,Meat,,True,Bovine Respiratory Disease,None
+Cow,Meat,,True,None,None
+Bull,Meat,14.76705277464848,True,Bovine Respiratory Disease,None
+Bull,Dairy,9.785692012488562,True,None,None
+Cow,Dairy,,False,None,None
+Cow,Meat,28.374860795969134,True,None,Vaccination
+Cow,Dairy,,True,None,Segregation
+Bull,Dairy,,True,Foot-and-Mouth Disease,None
+Bull,Meat,,True,Bovine Respiratory Disease,Segregation
+Bull,Dairy,11.178288866534798,False,Foot-and-Mouth Disease,Segregation
+Cow,Meat,,True,None,Vaccination
+Cow,Meat,7.097988395535735,True,None,None
+Bull,Meat,13.336564839900262,True,None,None
+Cow,Dairy,21.93852363758835,True,None,None
+Bull,Dairy,6.80277732323588,False,Foot-and-Mouth Disease,None
+Cow,Dairy,,True,None,None
+Cow,Dairy,14.536026035332787,False,Mastitis,Segregation
+Cow,Meat,,True,None,None
+Cow,Meat,,False,Foot-and-Mouth Disease,None
+Bull,Dairy,23.3371686623026,False,Mastitis,None
+Cow,Meat,,True,None,Segregation
+Bull,Meat,,True,Bovine Respiratory Disease,None
+Bull,Dairy,24.63172028790038,False,None,None
+Bull,Meat,,False,None,Vaccination
+Cow,Dairy,,True,None,None
+Bull,Meat,,False,Bovine Respiratory Disease,None
+Bull,Dairy,,False,None,Vaccination
+Bull,Meat,27.86827787391259,False,None,Segregation
+Cow,Meat,,True,None,None
+Cow,Dairy,,False,None,None
+Bull,Dairy,,False,Foot-and-Mouth Disease,Segregation
+Cow,Dairy,,False,None,None
+Bull,Dairy,18.694617359582985,True,Mastitis,None
+Bull,Meat,,True,Foot-and-Mouth Disease,None
+Cow,Meat,18.887385602646503,False,None,None
+Bull,Dairy,,True,None,Segregation
+Cow,Meat,19.55458075231474,False,Mastitis,None
+Cow,Dairy,10.11101434873867,True,None,None
+Bull,Dairy,17.992606572362106,True,None,None
+Cow,Meat,6.8510554478087,False,Foot-and-Mouth Disease,Segregation
+Cow,Meat,20.137066730360118,True,Bovine Respiratory Disease,Segregation
+Bull,Dairy,,True,None,None
+Bull,Dairy,,True,None,Vaccination
+Cow,Dairy,,False,None,Segregation
+Cow,Meat,18.740156713268917,True,Foot-and-Mouth Disease,None
+Bull,Meat,,True,Mastitis,None
+Cow,Meat,8.598547839305771,False,Mastitis,None
+Cow,Meat,19.8839915314651,True,Foot-and-Mouth Disease,Vaccination
+Cow,Dairy,,True,Bovine Respiratory Disease,None
+Cow,Dairy,,True,Foot-and-Mouth Disease,None
+Cow,Dairy,6.708352621140105,True,Mastitis,None
+Cow,Dairy,15.759368742269832,True,None,Vaccination
+Cow,Dairy,,False,None,None
+Bull,Dairy,,False,Foot-and-Mouth Disease,Segregation
+Bull,Meat,,True,None,None
+Bull,Meat,,True,None,None
+Bull,Dairy,21.040797720683862,True,None,None
+Bull,Dairy,,False,Bovine Respiratory Disease,None
+Cow,Meat,,False,None,None
+Cow,Meat,,True,None,None
+Cow,Meat,16.26716187347283,True,None,None
+Cow,Meat,21.801400968806334,False,None,None
+Bull,Dairy,19.58892418312046,True,None,None
+Cow,Dairy,18.143905488978373,False,None,Segregation
+Cow,Dairy,,False,Foot-and-Mouth Disease,None
+Bull,Dairy,5.050462943705848,True,None,None
+Cow,Dairy,,False,Bovine Respiratory Disease,Vaccination
+Cow,Meat,,True,None,None
+Bull,Dairy,,True,None,Vaccination
+Cow,Meat,,True,Mastitis,None
+Cow,Dairy,10.327125217120205,True,Bovine Respiratory Disease,None
+Cow,Dairy,28.476427399179677,True,Bovine Respiratory Disease,None
+Cow,Dairy,5.167053230597195,True,Bovine Respiratory Disease,Vaccination
+Cow,Dairy,,False,Foot-and-Mouth Disease,Segregation
+Bull,Dairy,,False,None,None
+Bull,Meat,,False,Mastitis,None
+Bull,Meat,,False,Mastitis,None
+Bull,Meat,,True,Bovine Respiratory Disease,None
+Bull,Dairy,14.640337821641202,False,None,None
+Bull,Dairy,,False,None,None
+Cow,Meat,18.549751872244148,False,None,None
+Bull,Dairy,,True,Bovine Respiratory Disease,None
+Bull,Dairy,,False,Bovine Respiratory Disease,None
+Cow,Meat,23.143147759102582,True,None,Vaccination
+Cow,Dairy,20.431225521218142,False,Foot-and-Mouth Disease,Vaccination
+Bull,Meat,,True,Foot-and-Mouth Disease,None
+Cow,Dairy,,True,None,Vaccination
+Bull,Meat,,False,Mastitis,None
+Cow,Dairy,,True,None,None
+Bull,Dairy,23.570624372657907,True,None,None
+Cow,Meat,,False,None,None
+Cow,Dairy,27.251425636631314,False,None,None
+Bull,Dairy,,False,None,None
+Bull,Meat,25.1797329697797,True,None,None
+Bull,Dairy,26.53299064537727,True,Bovine Respiratory Disease,Vaccination
+Bull,Meat,,True,None,None
+Bull,Dairy,17.8181598565444,False,None,Vaccination
+Cow,Dairy,,True,None,Vaccination
+Bull,Dairy,29.90655716312192,True,None,Vaccination
+Bull,Dairy,,True,None,None
+Cow,Meat,18.671899146901115,True,Bovine Respiratory Disease,Vaccination
+Cow,Dairy,,True,Bovine Respiratory Disease,None
+Bull,Meat,,True,None,None
+Cow,Dairy,10.100616643464466,True,None,Vaccination
+Cow,Dairy,21.34985230849503,False,None,None
+Bull,Dairy,25.459239162033434,False,None,None
+Cow,Dairy,6.2504644205278055,False,None,Vaccination
+Cow,Meat,,True,None,None
+Bull,Meat,5.737601378630148,True,Foot-and-Mouth Disease,Segregation
+Bull,Meat,,False,Mastitis,Segregation
+Cow,Meat,5.395329905824052,True,None,Vaccination
+Cow,Dairy,,False,Bovine Respiratory Disease,None
+Bull,Meat,,True,None,Segregation
+Cow,Meat,,True,None,None
+Cow,Dairy,,False,Mastitis,None
+Cow,Dairy,10.383609534563815,False,None,None
+Bull,Dairy,19.927394254667995,False,None,Vaccination
+Cow,Dairy,,False,Foot-and-Mouth Disease,None
+Cow,Meat,14.30500979563048,False,None,None
+Bull,Meat,13.32587179513496,True,None,None
+Cow,Dairy,,True,None,Segregation
+Cow,Dairy,14.582105991055034,True,None,None
+Bull,Dairy,17.337524803860205,False,None,None
+Bull,Meat,12.082619060623266,False,Mastitis,None
+Bull,Meat,,False,None,None
+Bull,Dairy,14.93620392247729,False,None,None
+Cow,Dairy,,False,None,Vaccination
+Cow,Meat,11.333929251491536,False,None,None
+Bull,Dairy,29.691489808531294,True,Bovine Respiratory Disease,None
+Bull,Dairy,12.287393523093073,True,Foot-and-Mouth Disease,Vaccination
+Cow,Meat,,True,None,Segregation
+Bull,Dairy,,True,None,None
+Cow,Meat,10.155435127103498,True,None,None
+Bull,Dairy,,False,None,Vaccination
+Cow,Dairy,13.34016972572608,False,None,None
+Bull,Meat,,False,None,None
+Bull,Meat,,False,None,None
+Cow,Dairy,26.4955958847819,False,None,None
+Bull,Meat,5.875197870170141,False,Foot-and-Mouth Disease,None
+Cow,Dairy,24.68433362512764,True,Bovine Respiratory Disease,Vaccination
+Cow,Dairy,15.283486662478596,False,Foot-and-Mouth Disease,Segregation
+Cow,Meat,,False,None,None
+Cow,Dairy,,False,None,None
+Cow,Dairy,,False,None,Vaccination
+Bull,Meat,17.485794246670885,True,Mastitis,None
+Bull,Meat,18.37563761497332,True,None,None
+Cow,Dairy,,False,Foot-and-Mouth Disease,None
+Bull,Meat,24.599683967233887,True,None,None
+Cow,Meat,,True,Foot-and-Mouth Disease,None
+Bull,Meat,,False,Mastitis,Segregation
+Bull,Meat,,False,Mastitis,Segregation
+Bull,Dairy,,False,None,Vaccination
+Bull,Dairy,,False,None,Vaccination
+Cow,Dairy,19.755816478772317,False,None,None
+Cow,Meat,15.190821449491395,True,None,Segregation
+Bull,Meat,16.73813855109657,False,None,None
+Bull,Meat,,False,None,None
+Cow,Meat,,False,None,Segregation
+Bull,Meat,,True,None,Vaccination
+Cow,Meat,,False,None,None
+Cow,Meat,5.2873118324528825,False,None,None
+Cow,Dairy,15.2194315307283,False,None,None
+Bull,Dairy,,True,None,None
+Cow,Meat,,False,None,Segregation
+Bull,Meat,,False,Mastitis,None
+Cow,Meat,24.663059559771177,False,Bovine Respiratory Disease,None
+Bull,Dairy,28.563282688002918,True,None,None
+Bull,Dairy,23.669415988342948,False,None,Vaccination
+Bull,Meat,,False,Bovine Respiratory Disease,None
+Cow,Meat,,False,None,None
+Cow,Dairy,16.155030524438594,True,Foot-and-Mouth Disease,None
+Bull,Dairy,,False,None,None
+Bull,Dairy,5.199110118636278,False,None,None
+Bull,Dairy,,False,None,Vaccination
+Cow,Meat,16.082662737929383,True,Mastitis,None
+Cow,Dairy,,True,None,None
+Cow,Dairy,11.372056222872057,False,Mastitis,Vaccination
+Cow,Meat,23.563270821010537,True,Foot-and-Mouth Disease,None
+Bull,Dairy,6.91589516188122,True,None,None
+Bull,Dairy,26.815895063670883,True,None,Vaccination
+Cow,Dairy,25.70292072515857,False,Foot-and-Mouth Disease,None
+Cow,Meat,10.401502906119159,False,None,None
+Bull,Dairy,,True,None,Vaccination
+Cow,Meat,,True,Foot-and-Mouth Disease,None
+Cow,Meat,,True,None,Segregation
+Cow,Dairy,14.338004422492189,False,None,None
+Cow,Dairy,11.787468854546697,False,None,Segregation
+Cow,Dairy,,True,None,None
+Cow,Dairy,12.96522406909018,True,None,Vaccination
+Bull,Meat,27.58896108581326,True,Foot-and-Mouth Disease,Segregation
+Cow,Dairy,6.941019399719532,True,None,Vaccination
+Cow,Dairy,25.721781906323965,False,None,None
+Bull,Dairy,13.72225187604559,True,None,None
+Bull,Meat,,False,None,None
+Bull,Dairy,,True,None,Vaccination
+Cow,Dairy,,True,Bovine Respiratory Disease,None
+Bull,Meat,,True,None,None
+Cow,Meat,,True,None,Segregation
+Cow,Dairy,15.362901620419807,True,Bovine Respiratory Disease,Vaccination
+Cow,Dairy,5.331275837597763,False,None,None
+Bull,Dairy,12.398572221466415,True,None,None
+Bull,Dairy,16.479730843314044,True,None,None
+Bull,Dairy,,True,None,None
+Bull,Meat,,False,Mastitis,Vaccination
+Bull,Meat,,False,None,Vaccination
+Cow,Dairy,17.234411224266758,False,None,Segregation
+Cow,Dairy,,False,Bovine Respiratory Disease,None
+Cow,Meat,23.515653722359264,True,None,None
+Cow,Dairy,,True,Foot-and-Mouth Disease,Vaccination
+Bull,Dairy,,True,Foot-and-Mouth Disease,Segregation
+Bull,Dairy,24.73580485487978,False,None,None
+Cow,Dairy,12.419667050496265,True,None,None
+Bull,Dairy,,True,Foot-and-Mouth Disease,Segregation
+Bull,Meat,,False,Bovine Respiratory Disease,Segregation
+Cow,Dairy,15.355023139295758,False,None,None
+Cow,Dairy,,False,None,None
+Bull,Dairy,,True,None,None
+Bull,Meat,8.037384777194134,True,None,None
+Cow,Meat,,False,None,None
+Cow,Meat,19.553595189444962,True,None,None
+Cow,Meat,,False,Foot-and-Mouth Disease,None
+Bull,Dairy,10.297358261002728,False,None,Segregation
+Cow,Meat,,True,None,None
+Cow,Dairy,9.173276770437536,False,Foot-and-Mouth Disease,None
+Bull,Dairy,,False,None,None
+Bull,Meat,11.690019971542688,False,Foot-and-Mouth Disease,None
+Bull,Meat,,True,None,Vaccination
+Bull,Meat,,False,Bovine Respiratory Disease,None
+Bull,Meat,,False,None,Segregation
+Cow,Meat,,False,None,None
+Cow,Dairy,,False,None,None
+Bull,Meat,,False,Mastitis,None
+Bull,Meat,,False,None,Segregation
+Bull,Meat,,False,None,Vaccination
+Bull,Dairy,,True,None,None
+Bull,Meat,23.839865768643822,True,None,Segregation
+Cow,Dairy,10.091678444317122,False,Bovine Respiratory Disease,None
+Cow,Meat,,True,None,None
+Cow,Meat,18.66713137748222,True,Mastitis,None
+Cow,Dairy,,False,None,None
+Bull,Meat,,True,None,None
+Cow,Dairy,28.627854718900217,False,Bovine Respiratory Disease,Segregation
+Bull,Dairy,,False,None,None
+Bull,Dairy,,False,Mastitis,Segregation
+Bull,Meat,28.32818086020771,False,None,None
+Cow,Meat,15.977389131270712,False,None,None
+Bull,Meat,,True,None,None
+Cow,Dairy,17.80711893108713,False,Mastitis,None
+Cow,Meat,7.857144249949487,True,None,None
+Bull,Dairy,,False,Bovine Respiratory Disease,None
+Bull,Meat,21.97244312694601,False,None,None
+Bull,Dairy,24.324668032639668,False,Bovine Respiratory Disease,None
+Cow,Dairy,,True,Mastitis,None
+Bull,Dairy,24.412232566275453,False,Bovine Respiratory Disease,Segregation
+Cow,Meat,20.28341505541617,False,None,Vaccination
+Bull,Dairy,,False,Foot-and-Mouth Disease,None
+Bull,Dairy,,False,None,None
+Cow,Dairy,,True,Foot-and-Mouth Disease,None
+Cow,Dairy,27.140494106044333,False,Bovine Respiratory Disease,None
+Cow,Dairy,,True,Bovine Respiratory Disease,None
+Cow,Dairy,,False,Foot-and-Mouth Disease,None
+Cow,Meat,27.039086373518924,True,None,Vaccination
+Cow,Meat,,True,Foot-and-Mouth Disease,None
+Bull,Dairy,,False,Mastitis,Segregation
+Bull,Meat,,False,None,None
+Cow,Meat,,True,Mastitis,None
+Bull,Dairy,26.85426705392565,False,Foot-and-Mouth Disease,None
+Cow,Dairy,,False,Foot-and-Mouth Disease,Vaccination
+Bull,Dairy,,False,Foot-and-Mouth Disease,Vaccination
+Bull,Meat,12.137719502962788,True,None,None
+Cow,Dairy,,False,None,None
+Cow,Meat,17.764044885233453,False,Bovine Respiratory Disease,None
+Cow,Dairy,25.514968941914667,False,None,Segregation
+Bull,Meat,15.114216410100434,True,None,None
+Cow,Dairy,,False,Bovine Respiratory Disease,None
+Bull,Dairy,5.334192081484891,True,None,None
+Cow,Meat,15.243480911073476,False,Bovine Respiratory Disease,None
+Bull,Meat,21.194355823758553,True,None,None
+Bull,Meat,,False,None,Vaccination
+Cow,Meat,,False,None,None
+Bull,Meat,,True,None,None
+Bull,Meat,,True,None,Segregation
+Cow,Dairy,,True,None,Segregation
+Bull,Meat,,False,Bovine Respiratory Disease,None
+Cow,Dairy,,False,None,Segregation
+Cow,Dairy,26.198197094083714,False,Mastitis,Segregation
+Cow,Meat,18.639629566728694,False,None,None
+Cow,Dairy,29.54268356302854,True,Foot-and-Mouth Disease,None
+Bull,Meat,16.261964286764883,False,None,None
+Bull,Meat,,False,None,None
+Bull,Dairy,29.730443848943754,False,None,None
+Cow,Dairy,10.78871089912622,False,None,None
+Bull,Meat,28.56364849192263,False,None,Vaccination
+Bull,Meat,6.070938877977831,False,None,None
+Cow,Dairy,,False,Foot-and-Mouth Disease,None
+Cow,Dairy,,True,Bovine Respiratory Disease,None
