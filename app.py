@@ -119,9 +119,6 @@ st.subheader("Random Forest Model Evaluation for Plant")
 st.write(f"Random Forest RMSE: {rf_rmse_plant:.2f}")
 
 
-# Animal Model Training
-st.header("Random Forest Model Training for Animal")
-
 # Assuming 'target_column_animal' is the target variable in your animal dataset
 X_anim = animal_df.drop("Animal_Harvest_Litres", axis=1)
 y_anim = animal_df["Animal_Harvest_Litres"]
@@ -133,19 +130,30 @@ X_train_anim, X_test_anim, y_train_anim, y_test_anim = train_test_split(
 
 # Creating transformers for numeric and categorical columns
 numeric_features_anim = X_train_anim.select_dtypes(include=[np.number]).columns
-numeric_transformer_anim = Pipeline(
-    steps=[
-        (
-            "num",
-            SimpleImputer(strategy="median"),
-        )  # You can use other imputation strategies as well
-    ]
-)
+categorical_features_anim = [
+    col for col in X_train_anim.columns if X_train_anim[col].dtype == "object"
+]
 
-categorical_features_anim = X_train_anim.select_dtypes(include=[np.object]).columns
-categorical_transformer_anim = Pipeline(
-    steps=[("onehot", OneHotEncoder(handle_unknown="ignore"))]
-)
+if not numeric_features_anim.empty:
+    numeric_transformer_anim = Pipeline(
+        steps=[
+            (
+                "num",
+                SimpleImputer(strategy="median"),
+            )  # You can use other imputation strategies as well
+        ]
+    )
+else:
+    st.error("No numeric features found in the animal dataset.")
+    st.stop()
+
+if categorical_features_anim:
+    categorical_transformer_anim = Pipeline(
+        steps=[("onehot", OneHotEncoder(handle_unknown="ignore"))]
+    )
+else:
+    st.error("No categorical features found in the animal dataset.")
+    st.stop()
 
 # Combining transformers
 preprocessor_anim = ColumnTransformer(
@@ -173,6 +181,7 @@ rf_predictions_anim = rf_model_anim.predict(X_test_anim)
 rf_rmse_anim = np.sqrt(mean_squared_error(y_test_anim, rf_predictions_anim))
 st.subheader("Random Forest Model Evaluation for Animal")
 st.write(f"Random Forest RMSE: {rf_rmse_anim:.2f}")
+
 
 # Animal Prediction
 st.header("Animal Prediction")
