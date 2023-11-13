@@ -87,8 +87,6 @@ except Exception as e:
 
 # Plant Prediction
 st.header("Plant Prediction")
-
-# Plant prediction input from sidebar
 plant_prediction_input = pd.DataFrame([plant_input])
 
 # Ensure that plant_prediction_input has the same columns as X_train_plant
@@ -100,6 +98,7 @@ try:
         plant_prediction_input
     )
     st.write("After transforming plant_prediction_input")
+    st.write("Columns after transform:", transformed_plant_prediction_input.columns)
     st.write("Shape after transform:", transformed_plant_prediction_input.shape)
 except Exception as e:
     st.write(f"Error during transformation: {e}")
@@ -112,6 +111,7 @@ if transformed_plant_prediction_input is not None:
     st.write(f"Predicted Plant Harvest (Kg): {plant_prediction[0]:.2f}")
 else:
     st.write("Transformation failed. Please check your input.")
+
 
 # Random Forest Model Training for Animal
 st.header("Random Forest Model Training for Animal")
