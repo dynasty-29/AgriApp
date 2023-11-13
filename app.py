@@ -8,7 +8,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder
-from xgboost import XGBRegressor  # Import the XGBRegressor
+
 
 # Load data
 plant_df = pd.read_csv("plant_data.csv")
