@@ -182,7 +182,8 @@ preprocessor_anim = ColumnTransformer(
     transformers=[
         ("num", numeric_transformer_anim, numeric_features_anim),
         ("cat", categorical_transformer_anim, categorical_columns_anim),
-    ]
+    ],
+    remainder="passthrough",  # Add this line to include non-transformed columns
 )
 
 # Creating the final pipeline with the RandomForestRegressor for the animal dataset
@@ -198,6 +199,7 @@ try:
     rf_model_anim.fit(X_train_anim, y_train_anim)
 except Exception as e:
     st.write(f"Error during training: {e}")
+
 
 # After transforming X_train_anim
 st.write("After transforming X_train_anim")
