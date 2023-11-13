@@ -112,6 +112,17 @@ try:
     transformed_plant_prediction_input = preprocessor_plant.transform(
         plant_prediction_input.iloc[0:1]  # Using iloc to get a Series
     )
+
+    # Convert the transformed data back to DataFrame
+    transformed_plant_prediction_input = pd.DataFrame(
+        transformed_plant_prediction_input,
+        columns=numeric_features_plant.tolist()
+        + preprocessor_plant.named_transformers_["cat"]
+        .named_steps["onehot"]
+        .get_feature_names_out(categorical_columns_plant)
+        .tolist(),
+    )
+
     st.write("After transforming plant_prediction_input")
     st.write("Shape after transform:", transformed_plant_prediction_input.shape)
     st.write("Columns after transform:", transformed_plant_prediction_input.columns)
