@@ -79,7 +79,11 @@ X_train_plant, X_test_plant, y_train_plant, y_test_plant = train_test_split(
 )
 
 # Training the model
-rf_model_plant.fit(X_train_plant, y_train_plant)
+try:
+    rf_model_plant.fit(X_train_plant, y_train_plant)
+except Exception as e:
+    st.write(f"Error during training the plant model: {e}")
+
 
 # Plant Prediction
 st.header("Plant Prediction")
