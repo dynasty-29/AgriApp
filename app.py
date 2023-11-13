@@ -169,15 +169,28 @@ st.write("Before transforming X_train_anim")
 st.write("Columns before transform:", X_train_anim.columns)
 st.write("Shape before transform:", X_train_anim.shape)
 
-# Check for NaN or infinite values in numeric columns of X_train_anim
-numeric_cols_anim = X_train_anim.select_dtypes(include=[np.number]).columns
-nan_inf_counts_anim = X_train_anim[numeric_cols_anim].apply(
-    lambda x: x.isnull().sum() + np.isinf(x).sum()
+# Creating transformers for numeric and categorical columns for the animal dataset
+numeric_features_anim = X_train_anim.select_dtypes(include=[np.number]).columns
+numeric_transformer_anim = Pipeline(steps=[("num", SimpleImputer(strategy="median"))])
+
+categorical_transformer_anim = Pipeline(
+    steps=[("onehot", OneHotEncoder(handle_unknown="ignore"))]
 )
 
-st.write(
-    "NaN or infinite values in X_train_anim (numeric columns only):",
-    nan_inf_counts_anim.sum(),
+# Combining transformers for the animal dataset
+preprocessor_anim = ColumnTransformer(
+    transformers=[
+        ("num", numeric_transformer_anim, numeric_features_anim),
+        ("cat", categorical_transformer_anim, categorical_columns_anim),
+    ]
+)
+
+# Creating the final pipeline with the RandomForestRegressor for the animal dataset
+rf_model_anim = Pipeline(
+    steps=[
+        ("preprocessor", preprocessor_anim),
+        ("regressor", RandomForestRegressor(random_state=42)),
+    ]
 )
 
 # Train the Random Forest model
@@ -185,6 +198,7 @@ try:
     rf_model_anim.fit(X_train_anim, y_train_anim)
 except Exception as e:
     st.write(f"Error during training: {e}")
+
 
 # After transforming X_train_anim
 st.write("After transforming X_train_anim")
