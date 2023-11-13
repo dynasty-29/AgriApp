@@ -114,18 +114,24 @@ try:
     )
     st.write("After transforming plant_prediction_input")
     st.write("Shape after transform:", transformed_plant_prediction_input.shape)
+    st.write("Columns after transform:", transformed_plant_prediction_input.columns)
 except Exception as e:
     st.write(f"Error during transformation: {e}")
     transformed_plant_prediction_input = None
 
+
 # Check if transformation was successful before predicting
 if transformed_plant_prediction_input is not None:
+    # Debugging information
+    st.write("Before predicting")
+    st.write("Columns before predict:", transformed_plant_prediction_input.columns)
+    st.write("Shape before predict:", transformed_plant_prediction_input.shape)
+
     # Predict Plant Harvest
     plant_prediction = rf_model_plant.predict(transformed_plant_prediction_input)
     st.write(f"Predicted Plant Harvest (Kg): {plant_prediction[0]:.2f}")
 else:
     st.write("Transformation failed. Please check your input.")
-
 
 # Random Forest Model Training for Animal
 st.header("Random Forest Model Training for Animal")
