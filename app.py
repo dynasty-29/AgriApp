@@ -199,7 +199,6 @@ try:
 except Exception as e:
     st.write(f"Error during training: {e}")
 
-
 # After transforming X_train_anim
 st.write("After transforming X_train_anim")
 st.write("Columns after transform:", X_train_anim.columns)
