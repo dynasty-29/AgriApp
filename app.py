@@ -182,8 +182,7 @@ preprocessor_anim = ColumnTransformer(
     transformers=[
         ("num", numeric_transformer_anim, numeric_features_anim),
         ("cat", categorical_transformer_anim, categorical_columns_anim),
-    ],
-    remainder="passthrough",  # Add this line to include non-transformed columns
+    ]
 )
 
 # Creating the final pipeline with the RandomForestRegressor for the animal dataset
