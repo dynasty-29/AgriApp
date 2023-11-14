@@ -50,22 +50,22 @@ animal_input["Disease_Treatment"] = st.sidebar.selectbox(
     "Diseases treatment", animal_df["Disease_Treatment"].unique()
 )
 
-# Plant Prediction
+# Plant Prediction Section
 st.header("Plant Prediction")
 
 # Plant Prediction input from sidebar
-plant_prediction_input = pd.DataFrame([plant_input])
+plant_prediction_input = {}
 
-# Ensure the columns are in the correct order
-plant_prediction_input = plant_prediction_input[X_train_plant.columns.tolist()]
-
-# Impute missing values with median
-plant_prediction_input = plant_prediction_input.apply(
-    lambda x: x.fillna(x.median()) if x.dtype.kind in "biufc" else x
+# Assuming 'Plant_Disease_Management', 'Pest_Management', etc. are the features in your dataset
+plant_prediction_input["Plant"] = st.sidebar.selectbox(
+    "Plant", plant_df["Plant"].unique()
 )
-
-# One-hot encode categorical columns
-plant_prediction_input = pd.get_dummies(plant_prediction_input)
+plant_prediction_input["Plant_Disease_Management"] = st.sidebar.selectbox(
+    "Disease Management", plant_df["Plant_Disease_Management"].unique()
+)
+plant_prediction_input["Pest_Management"] = st.sidebar.selectbox(
+    "Pest Management", plant_df["Pest_Management"].unique()
+)
 
 # Display user input for plant prediction
 st.subheader("User Input for Plant Prediction:")
@@ -75,33 +75,33 @@ st.write(plant_prediction_input)
 st.subheader("Predicted Plant Harvest:")
 st.write("Replace this with your prediction logic")
 
-
-# Animal Prediction
+# Animal Prediction Section
 st.header("Animal Prediction")
 
-# Animal prediction input from sidebar
-animal_prediction_input = pd.DataFrame([animal_input])
+# Animal Prediction input from sidebar
+animal_prediction_input = {}
 
-# Ensure the columns are in the correct order
-animal_prediction_input = animal_prediction_input[X_train_anim.columns]
-
-# Impute missing values with median
-animal_prediction_input = animal_prediction_input.apply(
-    lambda x: x.fillna(x.median()) if x.dtype.kind in "biufc" else x
+# Assuming 'Animal_Group', 'Animal_Type', etc. are the features in your dataset
+animal_prediction_input["Animal_Group"] = st.sidebar.selectbox(
+    "Animal Group", animal_df["Animal_Group"].unique()
+)
+animal_prediction_input["Animal_Type"] = st.sidebar.selectbox(
+    "Animal Type", animal_df["Animal_Type"].unique()
+)
+animal_prediction_input["Animal_Diseases_Management"] = st.sidebar.selectbox(
+    "Diseases Management", animal_df["Animal_Diseases_Management"].unique()
+)
+animal_prediction_input["Disease_Type"] = st.sidebar.selectbox(
+    "Disease", animal_df["Disease_Type"].unique()
+)
+animal_prediction_input["Disease_Treatment"] = st.sidebar.selectbox(
+    "Diseases treatment", animal_df["Disease_Treatment"].unique()
 )
 
-# One-hot encode categorical columns
-animal_prediction_input = pd.get_dummies(animal_prediction_input)
+# Display user input for animal prediction
+st.subheader("User Input for Animal Prediction:")
+st.write(animal_prediction_input)
 
-# Check if the columns match X_train_anim
-if set(animal_prediction_input.columns) == set(X_train_anim.columns):
-    # Try to predict Animal Harvest
-    try:
-        animal_prediction = rf_model_anim.predict(animal_prediction_input)
-        st.write(f"Predicted Animal Harvest: {animal_prediction[0]:.2f}")
-    except Exception as e:
-        st.write(f"Error during prediction: {e}")
-else:
-    st.write(
-        "Columns in animal_prediction_input do not match X_train_anim. Please check your input."
-    )
+# Display predicted value (placeholder, replace it with your prediction logic)
+st.subheader("Predicted Animal Harvest:")
+st.write("Replace this with your prediction logic")
