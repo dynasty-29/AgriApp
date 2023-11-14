@@ -5,13 +5,6 @@ import pandas as pd
 plant_df = pd.read_csv("plant_data.csv")
 animal_df = pd.read_csv("animal_data.csv")
 
-# Add an image for aesthetic purposes
-st.image(
-    "FoodPolicyNewsbanner.png",
-    caption="Agri_App",
-    use_column_width=True,
-    key="aesthetic_image",
-)
 
 # Sidebar for user input
 st.sidebar.title("User Input")
