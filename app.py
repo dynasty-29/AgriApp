@@ -99,7 +99,33 @@ plant_prediction_input = pd.DataFrame([plant_input])
 
 # Check if the columns match before transforming
 if set(plant_prediction_input.columns) == set(X_train_plant.columns):
-    # Try to transform the input using the preprocessor
+    # Extract numeric and categorical features
+    numeric_features_plant = X_train_plant.select_dtypes(include=[np.number]).columns
+    categorical_features_plant = X_train_plant.select_dtypes(
+        include=[np.object]
+    ).columns
+
+    # Create separate transformers for numeric and categorical columns
+    numeric_transformer_plant = Pipeline(
+        steps=[
+            ("num", SimpleImputer(strategy="median")),
+        ]
+    )
+
+    categorical_transformer_plant = Pipeline(
+        steps=[
+            ("onehot", OneHotEncoder(handle_unknown="ignore")),
+        ]
+    )
+
+    # Combine transformers using ColumnTransformer
+    preprocessor_plant = ColumnTransformer(
+        transformers=[
+            ("num", numeric_transformer_plant, numeric_features_plant),
+            ("cat", categorical_transformer_plant, categorical_features_plant),
+        ]
+    )
+
     try:
         transformed_plant_prediction_input = preprocessor_plant.transform(
             plant_prediction_input
@@ -109,6 +135,7 @@ if set(plant_prediction_input.columns) == set(X_train_plant.columns):
     except Exception as e:
         st.write(f"Error during transformation: {e}")
         transformed_plant_prediction_input = None
+
 else:
     st.write(
         "Columns in plant_prediction_input do not match X_train_plant. Please check your input."
