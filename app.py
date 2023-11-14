@@ -116,6 +116,13 @@ plant_input = pd.DataFrame([plant_input])
 # Ensure that plant_input has the same columns as X_train_plant
 plant_input = plant_input[X_train_plant.columns]
 
+# Print columns before attempting to select columns
+st.write("Columns in plant_input:", plant_input.columns)
+st.write("Columns in X_train_plant:", X_train_plant.columns)
+
+# Ensure that plant_input has the same columns as X_train_plant
+plant_input = plant_input[X_train_plant.columns]
+
 # Try to transform the input using the preprocessor and catch any exceptions
 try:
     transformed_plant_input = preprocessor_plant.transform(plant_input)
