@@ -27,7 +27,6 @@ plant_input["Pest_Management"] = st.sidebar.selectbox(
     key="pest_management_selectbox",
 )
 
-
 # Display user input for plant prediction
 st.subheader("User Input for Plant Prediction:")
 st.write(plant_input)
@@ -60,16 +59,10 @@ animal_input["Animal_Diseases_Management"] = st.sidebar.selectbox(
 animal_input["Disease_Type"] = st.sidebar.selectbox(
     "Disease", animal_df["Disease_Type"].unique(), key="disease_type_selectbox"
 )
-animal_input["Disease_Treatment"] = st.centrebar.selectbox(
-    "Diseases treatment",
-    animal_df["Disease_Treatment"].unique(),
-    key="disease_treatment_selectbox",
-)
-
 animal_input["Disease_Treatment"] = st.sidebar.selectbox(
     "Diseases treatment",
     animal_df["Disease_Treatment"].unique(),
-    key="main_disease_treatment_selectbox",
+    key="disease_treatment_selectbox",
 )
 
 # Display user input for animal prediction
@@ -78,8 +71,8 @@ st.write(animal_input)
 
 # Display predicted value (placeholder, replace it with your prediction logic)
 st.subheader("Predicted Animal Harvest:")
-st.write("Replace this with your prediction logic")
-animal_input["Animal_Harvest_Litres"] = st.centrebar.selectbox(
+# st.write("Replace this with your prediction logic")
+animal_input["Animal_Harvest_Litres"] = st.selectbox(
     "Diseases treatment",
     animal_df["Animal_Harvest_Litres"].unique(),
     key="animal_Harvest_Litres_selectbox",
