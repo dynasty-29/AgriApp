@@ -90,7 +90,7 @@ X_train_plant, X_test_plant, y_train_plant, y_test_plant = train_test_split(
 
 # Training the model
 rf_model_plant.fit(X_train_plant, y_train_plant)
-# Plant Prediction
+## Plant Prediction
 st.header("Plant Prediction")
 
 # Plant Prediction input from sidebar
@@ -118,6 +118,36 @@ if set(plant_prediction_input.columns) == set(X_train_plant.columns):
 else:
     st.write(
         "Columns in plant_prediction_input do not match X_train_plant. Please check your input."
+    )
+
+# Animal Prediction
+st.header("Animal Prediction")
+
+# Animal prediction input from sidebar
+animal_prediction_input = pd.DataFrame([animal_input])
+
+# Ensure the columns are in the correct order
+animal_prediction_input = animal_prediction_input[X_train_anim.columns]
+
+# Impute missing values with median
+animal_prediction_input = animal_prediction_input.apply(
+    lambda x: x.fillna(x.median()) if x.dtype.kind in "biufc" else x
+)
+
+# One-hot encode categorical columns
+animal_prediction_input = pd.get_dummies(animal_prediction_input)
+
+# Check if the columns match X_train_anim
+if set(animal_prediction_input.columns) == set(X_train_anim.columns):
+    # Try to predict Animal Harvest
+    try:
+        animal_prediction = rf_model_anim.predict(animal_prediction_input)
+        st.write(f"Predicted Animal Harvest: {animal_prediction[0]:.2f}")
+    except Exception as e:
+        st.write(f"Error during prediction: {e}")
+else:
+    st.write(
+        "Columns in animal_prediction_input do not match X_train_anim. Please check your input."
     )
 
 # Random Forest Model Training for Animal
