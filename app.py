@@ -83,6 +83,9 @@ preprocessor_plant = ColumnTransformer(
         ("cat", categorical_transformer_plant, categorical_columns_plant),
     ]
 )
+# Print columns for debugging
+print("Columns in X_train_plant:", X_train_plant.columns)
+print("Columns in plant_df:", plant_df.columns)
 
 # Creating the final pipeline with the RandomForestRegressor
 rf_model_plant = Pipeline(
@@ -134,8 +137,6 @@ else:
         "Columns in plant_prediction_input do not match X_train_plant. Please check your input."
     )
     transformed_plant_prediction_input = None
-
-
 
 
 # Random Forest Model Training for Animal
