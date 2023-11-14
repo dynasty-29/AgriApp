@@ -83,9 +83,6 @@ preprocessor_plant = ColumnTransformer(
         ("cat", categorical_transformer_plant, categorical_columns_plant),
     ]
 )
-# Print columns for debugging
-print("Columns in X_train_plant:", X_train_plant.columns)
-print("Columns in plant_df:", plant_df.columns)
 
 # Creating the final pipeline with the RandomForestRegressor
 rf_model_plant = Pipeline(
@@ -102,6 +99,10 @@ X_train_plant, X_test_plant, y_train_plant, y_test_plant = train_test_split(
     test_size=0.2,
     random_state=42,
 )
+
+# Print columns for debugging
+print("Columns in X_train_plant:", X_train_plant.columns)
+print("Columns in plant_df:", plant_df.columns)
 
 # Training the model
 try:
