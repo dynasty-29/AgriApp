@@ -30,6 +30,28 @@ plant_input["Pest_Management"] = st.sidebar.selectbox(
     "Pest Management", plant_df["Pest_Management"].unique()
 )
 
+# Animal Prediction Section
+st.sidebar.subheader("Animal Prediction")
+animal_input = {}
+
+# Assuming 'Animal_Diseases_Management', 'Disease_Type', etc. are the features in your dataset
+animal_input["Animal_Group"] = st.sidebar.selectbox(
+    "Animal Group", animal_df["Animal_Group"].unique()
+)
+animal_input["Animal_Type"] = st.sidebar.selectbox(
+    "Animal Type", animal_df["Animal_Type"].unique()
+)
+animal_input["Animal_Diseases_Management"] = st.sidebar.selectbox(
+    "Diseases Management", animal_df["Animal_Diseases_Management"].unique()
+)
+animal_input["Disease_Type"] = st.sidebar.selectbox(
+    "Disease", animal_df["Disease_Type"].unique()
+)
+animal_input["Disease_Treatment"] = st.sidebar.selectbox(
+    "Diseases treatment", animal_df["Disease_Treatment"].unique()
+)
+
+
 # Main content
 st.title("Plant and Animal Data Analysis App")
 
