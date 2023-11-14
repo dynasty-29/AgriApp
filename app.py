@@ -109,39 +109,30 @@ except Exception as e:
 
 # Plant Prediction
 st.header("Plant Prediction")
-plant_prediction_input = pd.DataFrame([plant_input])
 
-# Ensure that plant_prediction_input has the same columns as X_train_plant
-plant_prediction_input = plant_prediction_input[X_train_plant.columns]
-print("Columns in plant_prediction_input:", plant_prediction_input.columns)
-print("Columns in X_train_plant:", X_train_plant.columns)
-try:
-    plant_prediction_input = plant_prediction_input[X_train_plant.columns]
-except KeyError as e:
-    st.write(f"Error selecting columns: {e}")
-    plant_prediction_input = None
+# Plant input from sidebar
+plant_input = pd.DataFrame([plant_input])
 
+# Ensure that plant_input has the same columns as X_train_plant
+plant_input = plant_input[X_train_plant.columns]
 
 # Try to transform the input using the preprocessor and catch any exceptions
 try:
-    transformed_plant_prediction_input = preprocessor_plant.transform(
-        plant_prediction_input
-    )
-    st.write("After transforming plant_prediction_input")
-    st.write("Columns after transform:", transformed_plant_prediction_input.columns)
-    st.write("Shape after transform:", transformed_plant_prediction_input.shape)
+    transformed_plant_input = preprocessor_plant.transform(plant_input)
+    st.write("After transforming plant_input")
+    st.write("Columns after transform:", transformed_plant_input.columns)
+    st.write("Shape after transform:", transformed_plant_input.shape)
 except Exception as e:
     st.write(f"Error during transformation: {e}")
-    transformed_plant_prediction_input = None
+    transformed_plant_input = None
 
 # Check if transformation was successful before predicting
-if transformed_plant_prediction_input is not None:
+if transformed_plant_input is not None:
     # Predict Plant Harvest
-    plant_prediction = rf_model_plant.predict(transformed_plant_prediction_input)
+    plant_prediction = rf_model_plant.predict(transformed_plant_input)
     st.write(f"Predicted Plant Harvest (Kg): {plant_prediction[0]:.2f}")
 else:
     st.write("Transformation failed. Please check your input.")
-
 
 # Random Forest Model Training for Animal
 st.header("Random Forest Model Training for Animal")
