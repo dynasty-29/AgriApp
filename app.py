@@ -115,7 +115,8 @@ plant_prediction_input = pd.DataFrame([plant_input])
 
 
 # Print columns before attempting to select columns
-st.write("Columns in plant_input:", plant_input.columns)
+st.write("Columns in plant_input:", list(plant_input.keys()))
+
 st.write("Columns in X_train_plant:", X_train_plant.columns)
 
 # Ensure that plant_prediction_input has the same columns as X_train_plant
