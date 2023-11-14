@@ -113,8 +113,11 @@ st.header("Plant Prediction")
 # Ensure that plant_prediction_input is a DataFrame with double square brackets
 plant_prediction_input = pd.DataFrame([plant_input])
 
-# Check if the columns match before transforming
-if list(plant_prediction_input.columns) == list(X_train_plant.columns):
+# Check if the columns match X_train_plant before transforming
+if set(plant_prediction_input.columns) == set(X_train_plant.columns):
+    # Ensure that plant_prediction_input has the same columns as X_train_plant
+    plant_prediction_input = plant_prediction_input[X_train_plant.columns]
+
     # Try to transform the input using the preprocessor and catch any exceptions
     try:
         transformed_plant_prediction_input = preprocessor_plant.transform(
