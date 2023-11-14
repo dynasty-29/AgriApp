@@ -90,50 +90,35 @@ X_train_plant, X_test_plant, y_train_plant, y_test_plant = train_test_split(
 
 # Training the model
 rf_model_plant.fit(X_train_plant, y_train_plant)
-
-
 # Plant Prediction
 st.header("Plant Prediction")
 
 # Plant Prediction input from sidebar
 plant_prediction_input = pd.DataFrame([plant_input])
 
-# Extract numeric and categorical features
-numeric_features_plant = X_train_plant.select_dtypes(include=[np.number]).columns
-categorical_features_plant = X_train_plant.select_dtypes(include=[np.object]).columns
+# Ensure the columns are in the correct order
+plant_prediction_input = plant_prediction_input[X_train_plant.columns]
 
-# Separate numeric and categorical features in the input
-numeric_input_plant = plant_prediction_input[numeric_features_plant]
-categorical_input_plant = plant_prediction_input[categorical_features_plant]
-
-# Impute missing values in numeric features
-numeric_input_plant = numeric_input_plant.apply(lambda x: x.fillna(x.median()))
-
-# One-hot encode categorical features
-categorical_input_plant = pd.get_dummies(categorical_input_plant)
-
-# Combine numeric and one-hot encoded categorical features
-transformed_plant_prediction_input = pd.concat(
-    [numeric_input_plant, categorical_input_plant], axis=1
+# Impute missing values with median
+plant_prediction_input = plant_prediction_input.apply(
+    lambda x: x.fillna(x.median()) if x.dtype.kind in "biufc" else x
 )
 
-# Print the transformed input for debugging
-st.write("Transformed plant_prediction_input:")
-st.write(transformed_plant_prediction_input)
+# One-hot encode categorical columns
+plant_prediction_input = pd.get_dummies(plant_prediction_input)
 
 # Check if the columns match X_train_plant
-if set(transformed_plant_prediction_input.columns) == set(X_train_plant.columns):
+if set(plant_prediction_input.columns) == set(X_train_plant.columns):
     # Try to predict Plant Harvest
     try:
-        plant_prediction = rf_model_plant.predict(transformed_plant_prediction_input)
+        plant_prediction = rf_model_plant.predict(plant_prediction_input)
         st.write(f"Predicted Plant Harvest: {plant_prediction[0]:.2f}")
     except Exception as e:
         st.write(f"Error during prediction: {e}")
 else:
     st.write(
-        "Columns in transformed plant_prediction_input do not match X_train_plant. Please check your input."
+        "Columns in plant_prediction_input do not match X_train_plant. Please check your input."
     )
-
 
 # Random Forest Model Training for Animal
 st.header("Random Forest Model Training for Animal")
