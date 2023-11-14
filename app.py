@@ -92,6 +92,7 @@ X_train_plant, X_test_plant, y_train_plant, y_test_plant = train_test_split(
 rf_model_plant.fit(X_train_plant, y_train_plant)
 
 # Plant Prediction
+# Plant Prediction
 st.header("Plant Prediction")
 
 # Plant Prediction input from sidebar
