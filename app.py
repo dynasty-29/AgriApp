@@ -98,21 +98,31 @@ st.header("Plant Prediction")
 plant_prediction_input = pd.DataFrame([plant_input])
 
 # Check if the columns match before transforming
-if list(plant_prediction_input.columns) == list(X_train_plant.columns):
+if set(plant_prediction_input.columns) == set(X_train_plant.columns):
     # Try to transform the input using the preprocessor
-    transformed_plant_prediction_input = preprocessor_plant.transform(
-        plant_prediction_input
-    )
-    st.write("After transforming plant_prediction_input")
-    st.write("Shape after transform:", transformed_plant_prediction_input.shape)
+    try:
+        transformed_plant_prediction_input = preprocessor_plant.transform(
+            plant_prediction_input
+        )
+        st.write("After transforming plant_prediction_input")
+        st.write("Shape after transform:", transformed_plant_prediction_input.shape)
+    except Exception as e:
+        st.write(f"Error during transformation: {e}")
+        transformed_plant_prediction_input = None
 else:
     st.write(
         "Columns in plant_prediction_input do not match X_train_plant. Please check your input."
     )
+    transformed_plant_prediction_input = None
 
-# Make predictions
-plant_prediction = rf_model_plant.predict(transformed_plant_prediction_input)
-st.write(f"Predicted Plant Harvest: {plant_prediction[0]:.2f}")
+# Check if transformation was successful before predicting
+if transformed_plant_prediction_input is not None:
+    # Predict Plant Harvest
+    plant_prediction = rf_model_plant.predict(transformed_plant_prediction_input)
+    st.write(f"Predicted Plant Harvest: {plant_prediction[0]:.2f}")
+else:
+    st.write("Transformation failed. Please check your input.")
+
 
 # Random Forest Model Training for Animal
 st.header("Random Forest Model Training for Animal")
