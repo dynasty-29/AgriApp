@@ -110,15 +110,13 @@ except Exception as e:
 # Plant Prediction
 st.header("Plant Prediction")
 
-# Plant input from sidebar
+# Ensure that plant_prediction_input is a DataFrame with double square brackets
 plant_prediction_input = pd.DataFrame([plant_input])
 
 # Check if the columns match before transforming
 if list(plant_prediction_input.columns) == list(X_train_plant.columns):
     # Try to transform the input using the preprocessor and catch any exceptions
     try:
-        # Ensure that plant_prediction_input is a DataFrame with double square brackets
-        plant_prediction_input = pd.DataFrame([plant_input])
         transformed_plant_prediction_input = preprocessor_plant.transform(
             plant_prediction_input
         )
@@ -133,36 +131,6 @@ else:
     )
     transformed_plant_prediction_input = None
 
-# Print columns before attempting to select columns
-st.write("Columns in plant_input:", list(plant_input.keys()))
-
-st.write("Columns in X_train_plant:", X_train_plant.columns)
-
-# Ensure that plant_prediction_input has the same columns as X_train_plant
-missing_cols = set(X_train_plant.columns) - set(plant_prediction_input.columns)
-for col in missing_cols:
-    plant_prediction_input[col] = 0
-
-# Reorder the columns to match the order in X_train_plant
-plant_prediction_input = plant_prediction_input[X_train_plant.columns]
-
-# Try to transform the input using the preprocessor and catch any exceptions
-try:
-    transformed_plant_input = preprocessor_plant.transform(plant_input)
-    st.write("After transforming plant_input")
-    st.write("Columns after transform:", transformed_plant_input.columns)
-    st.write("Shape after transform:", transformed_plant_input.shape)
-except Exception as e:
-    st.write(f"Error during transformation: {e}")
-    transformed_plant_input = None
-
-# Check if transformation was successful before predicting
-if transformed_plant_input is not None:
-    # Predict Plant Harvest
-    plant_prediction = rf_model_plant.predict(transformed_plant_input)
-    st.write(f"Predicted Plant Harvest (Kg): {plant_prediction[0]:.2f}")
-else:
-    st.write("Transformation failed. Please check your input.")
 
 # Random Forest Model Training for Animal
 st.header("Random Forest Model Training for Animal")
