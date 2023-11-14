@@ -113,6 +113,14 @@ plant_prediction_input = pd.DataFrame([plant_input])
 
 # Ensure that plant_prediction_input has the same columns as X_train_plant
 plant_prediction_input = plant_prediction_input[X_train_plant.columns]
+print("Columns in plant_prediction_input:", plant_prediction_input.columns)
+print("Columns in X_train_plant:", X_train_plant.columns)
+try:
+    plant_prediction_input = plant_prediction_input[X_train_plant.columns]
+except KeyError as e:
+    st.write(f"Error selecting columns: {e}")
+    plant_prediction_input = None
+
 
 # Try to transform the input using the preprocessor and catch any exceptions
 try:
