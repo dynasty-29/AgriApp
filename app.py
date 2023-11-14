@@ -57,7 +57,7 @@ st.header("Plant Prediction")
 plant_prediction_input = pd.DataFrame([plant_input])
 
 # Ensure the columns are in the correct order
-plant_prediction_input = plant_prediction_input[X_train_plant.columns]
+plant_prediction_input = plant_prediction_input[X_train_plant.columns.tolist()]
 
 # Impute missing values with median
 plant_prediction_input = plant_prediction_input.apply(
@@ -67,18 +67,14 @@ plant_prediction_input = plant_prediction_input.apply(
 # One-hot encode categorical columns
 plant_prediction_input = pd.get_dummies(plant_prediction_input)
 
-# Check if the columns match X_train_plant
-if set(plant_prediction_input.columns) == set(X_train_plant.columns):
-    # Try to predict Plant Harvest
-    try:
-        plant_prediction = rf_model_plant.predict(plant_prediction_input)
-        st.write(f"Predicted Plant Harvest: {plant_prediction[0]:.2f}")
-    except Exception as e:
-        st.write(f"Error during prediction: {e}")
-else:
-    st.write(
-        "Columns in plant_prediction_input do not match X_train_plant. Please check your input."
-    )
+# Display user input for plant prediction
+st.subheader("User Input for Plant Prediction:")
+st.write(plant_prediction_input)
+
+# Display predicted value (placeholder, replace it with your prediction logic)
+st.subheader("Predicted Plant Harvest:")
+st.write("Replace this with your prediction logic")
+
 
 # Animal Prediction
 st.header("Animal Prediction")
