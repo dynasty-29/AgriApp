@@ -113,6 +113,25 @@ st.header("Plant Prediction")
 # Plant input from sidebar
 plant_prediction_input = pd.DataFrame([plant_input])
 
+# Check if the columns match before transforming
+if list(plant_prediction_input.columns) == list(X_train_plant.columns):
+    # Try to transform the input using the preprocessor and catch any exceptions
+    try:
+        # Ensure that plant_prediction_input is a DataFrame with double square brackets
+        plant_prediction_input = pd.DataFrame([plant_input])
+        transformed_plant_prediction_input = preprocessor_plant.transform(
+            plant_prediction_input
+        )
+        st.write("After transforming plant_prediction_input")
+        st.write("Shape after transform:", transformed_plant_prediction_input.shape)
+    except Exception as e:
+        st.write(f"Error during transformation: {e}")
+        transformed_plant_prediction_input = None
+else:
+    st.write(
+        "Columns in plant_prediction_input do not match X_train_plant. Please check your input."
+    )
+    transformed_plant_prediction_input = None
 
 # Print columns before attempting to select columns
 st.write("Columns in plant_input:", list(plant_input.keys()))
