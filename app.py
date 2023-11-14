@@ -59,7 +59,7 @@ st.title("Plant and Animal Data Analysis App")
 st.header("Random Forest Model Training for Plant")
 
 # Assuming 'Plant' is the non-numeric column in your dataset
-categorical_columns_plant = ["Plant", "Plant_Disease_Management", "Pest_Management"]
+categorical_columns_plant = [["Plant", "Plant_Disease_Management", "Pest_Management"]]
 
 # Creating transformers for numeric and categorical columns
 numeric_features_plant = plant_df.select_dtypes(include=[np.number]).columns
